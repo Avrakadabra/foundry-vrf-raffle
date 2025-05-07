@@ -14,7 +14,7 @@ fs_permissions = [
 [fuzz]
 runs = 256
 
-[size]
+[profile.size]
 ignore = ["VRFCoordinatorV2_5Mock"]
 
 
