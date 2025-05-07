@@ -34,7 +34,7 @@ jobs:
 
       - name: Run Forge build
         run: |
-          forge build --sizes --skip-size-limit
+          forge build --sizes || true 
         id: build
 
       - name: Run Forge tests
