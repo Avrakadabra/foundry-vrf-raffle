@@ -1,0 +1,37 @@
+Smart Contract Testing Notes
+============================
+
+1. **Unit Tests**
+    - Verify single functions or very small components in isolation.
+    - Fastest feedback loop; foundation of the test suite.
+
+2. **Integration Tests**
+    - Ensure multiple contracts—as well as deploy scripts—work correctly together.
+      Example: Raffle ↔ VRF Coordinator.
+    - Catches interaction-level bugs.
+
+3. **Forked Tests**
+    - Run against a locally-forked mainnet/testnet state.
+    - Lets you interact with real on-chain data while maintaining local-test speed.
+    - Great for:
+      - Upgrade simulations.
+      - Oracle calls.
+
+4. **Staging Tests**
+    - End-to-end rehearsal on a public testnet (or high-fidelity local mocks).
+    - Confirms that:
+      - Deployment transactions.
+      - Addresses.
+      - External integrations.
+    - Behave as expected before mainnet launch.
+
+5. **Fuzzing**
+    - Hammer contracts with pseudo-random inputs to surface edge cases.
+      - **Stateless Fuzzing**: Each call starts fresh; ideal for pure/isolated logic.
+      - **Stateful Fuzzing**: Generates random sequences of calls to explore state transitions and invariants over time.
+
+6. **Formal Verification**
+    - Apply mathematical proofs & SMT solvers to guarantee specified properties.
+      Example: No re-entrancy, certain invariants.
+    - Ensures correctness for all possible inputs and states.
+    - Provides the highest assurance but requires more effort.
